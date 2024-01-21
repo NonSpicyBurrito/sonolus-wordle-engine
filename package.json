@@ -1,0 +1,27 @@
+{
+  "name": "sonolus-wordle-engine",
+  "version": "1.0.0",
+  "description": "A Wordle engine in Sonolus",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-rom": "node ./shared/src/engine/rom/build.js",
+    "dev:play": "sonolus-cli --dev ./play",
+    "dev:watch": "sonolus-cli --dev ./watch",
+    "dev:preview": "sonolus-cli --dev ./preview",
+    "dev:tutorial": "sonolus-cli --dev ./tutorial",
+    "prebuild": "tsc -p ./shared --noEmit && tsc -p ./play --noEmit && tsc -p ./watch --noEmit && tsc -p ./preview --noEmit && tsc -p ./tutorial --noEmit && eslint . && prettier . --check",
+    "build": "sonolus-cli --build ./play && sonolus-cli --build ./watch && sonolus-cli --build ./preview && sonolus-cli --build ./tutorial && node ./build.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.4",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "sonolus-core": "~7.4.1",
+    "sonolus.js": "~9.3.1",
+    "typescript": "~5.3.3"
+  }
+}

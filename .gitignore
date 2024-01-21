@@ -1,0 +1,7 @@
+node_modules
+
+.dev
+dist
+
+shared/src/engine/rom/meta.json
+shared/src/engine/rom/EngineRom

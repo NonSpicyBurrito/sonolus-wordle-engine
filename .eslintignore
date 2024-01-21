@@ -1,0 +1,12 @@
+**/*.*
+
+!shared/src/**/*.*
+shared/src/engine/rom/build.js
+
+!play/src/**/*.*
+
+!watch/src/**/*.*
+
+!preview/src/**/*.*
+
+!tutorial/src/**/*.*

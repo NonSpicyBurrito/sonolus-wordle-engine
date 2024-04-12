@@ -4,7 +4,7 @@ import { cursor, game } from '../game.js'
 export class Score extends Archetype {
     hasInput = true
 
-    data = this.defineData({
+    import = this.defineImport({
         index: { name: 'index', type: Number },
     })
 
@@ -18,7 +18,7 @@ export class Score extends Archetype {
 
     initialize() {
         this.result.judgment =
-            game.state === GameState.Won && this.data.index >= cursor.y - 1
+            game.state === GameState.Won && this.import.index >= cursor.y - 1
                 ? Judgment.Perfect
                 : Judgment.Miss
         this.result.accuracy = (time.now - 2) / 1000

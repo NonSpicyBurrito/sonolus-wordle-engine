@@ -1,4 +1,4 @@
-import { readonlyPointer } from 'sonolus.js-compiler/internal/lib/play/utils/pointer.js'
+import { readonlyPointer } from '@sonolus/sonolus.js-compiler/internal/lib/play/utils/pointer.js'
 import { rom } from '../../../../shared/src/engine/rom/index.js'
 import { GameState } from './GameState.js'
 import { State } from './State.js'

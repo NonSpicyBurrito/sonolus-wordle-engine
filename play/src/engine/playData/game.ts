@@ -11,6 +11,7 @@ export const game = levelMemory({
 export const board = levelMemory({
     letters: Tuple(30, Number),
     states: Tuple(30, DataType<State>),
+    times: Tuple(6, Number),
 })
 
 export const cursor = levelMemory({

@@ -1,6 +1,6 @@
 **/*.*
 
-!.eslintrc.cjs
+!eslint.config.js
 !build.js
 
 !shared/src/**/*.*

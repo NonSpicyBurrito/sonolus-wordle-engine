@@ -1,6 +1,6 @@
 {
   "name": "sonolus-wordle-engine",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Wordle engine in Sonolus",
   "private": true,
   "type": "module",

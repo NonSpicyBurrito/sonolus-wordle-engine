@@ -19,7 +19,7 @@ export class Answer extends SpawnableArchetype({
     }
 
     updateParallel() {
-        if (game.state !== GameState.Loss) return
+        if (game.state === GameState.Ongoing) return
 
         skin.sprites.draw(getLetterSpriteId(game.answer.get(this.spawnData.x)), this.layout, 1, 1)
         skin.sprites.green.draw(this.layout, 0, 1)

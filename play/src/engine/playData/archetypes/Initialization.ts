@@ -12,6 +12,14 @@ export class Initialization extends Archetype {
     })
 
     preprocess() {
+        if (multiplayer.isMultiplayer) this.randomizeAnswer()
+
+        for (let i = 0; i < board.letters.length; i++) {
+            board.letters.set(i, -1)
+        }
+
+        animation.y = -1
+
         letter.size = Math.min(screen.w / 34, screen.h / 22)
 
         const transform = Mat.identity.rotate(Math.PI / 2).translate(screen.r, 0)
@@ -33,6 +41,12 @@ export class Initialization extends Archetype {
     }
 
     updateSequential() {
+        if (!multiplayer.isMultiplayer) this.randomizeAnswer()
+
+        this.despawn = true
+    }
+
+    randomizeAnswer() {
         let word = la.get(Math.floor(Math.random() * la.length))
         game.answer.set(0, Math.floor(word / 26 ** 4))
         this.export('a0', game.answer.get(0))
@@ -48,13 +62,5 @@ export class Initialization extends Archetype {
         word %= 26 ** 1
         game.answer.set(4, Math.floor(word / 26 ** 0))
         this.export('a4', game.answer.get(4))
-
-        for (let i = 0; i < board.letters.length; i++) {
-            board.letters.set(i, -1)
-        }
-
-        animation.y = -1
-
-        this.despawn = true
     }
 }

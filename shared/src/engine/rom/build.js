@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs'
-import { gzipSync } from 'zlib'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { gzipSync } from 'node:zlib'
 
 const la = readFileSync(new URL('la.txt', import.meta.url), 'utf8').split('\n')
 const ta = readFileSync(new URL('ta.txt', import.meta.url), 'utf8').split('\n')

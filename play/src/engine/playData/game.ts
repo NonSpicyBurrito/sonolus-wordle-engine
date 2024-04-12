@@ -1,4 +1,4 @@
-import { readonlyPointer } from 'sonolus.js-compiler/internal/lib/play/utils/pointer.js'
+import { readonlyPointer } from '@sonolus/sonolus.js-compiler/internal/lib/play/utils/pointer.js'
 import { rom } from '../../../../shared/src/engine/rom/index.js'
 import { GameState } from './GameState.js'
 import { State } from './State.js'
@@ -11,6 +11,7 @@ export const game = levelMemory({
 export const board = levelMemory({
     letters: Tuple(30, Number),
     states: Tuple(30, DataType<State>),
+    times: Tuple(6, Number),
 })
 
 export const cursor = levelMemory({

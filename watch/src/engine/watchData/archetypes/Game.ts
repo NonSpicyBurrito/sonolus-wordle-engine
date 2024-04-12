@@ -1,19 +1,10 @@
 import { options } from '../../configuration/options.js'
-import { GameState } from '../GameState.js'
-import { game } from '../game.js'
-import { skin } from '../skin.js'
 import { archetypes } from './index.js'
 
 export class Game extends Archetype {
-    spawnOrder() {
-        return 1
-    }
+    preprocess() {
+        if (!replay.isReplay) return
 
-    shouldSpawn() {
-        return entityInfos.get(0).state === EntityState.Despawned
-    }
-
-    initialize() {
         for (let x = 0; x < 5; x++) {
             for (let y = 0; y < 6; y++) {
                 archetypes.Cell.spawn({ x, y })
@@ -25,25 +16,6 @@ export class Game extends Archetype {
         this.spawnKeys('QWERTYUIOP', 2)
         this.spawnKeys('ASDFGHJKL', 1)
         this.spawnKeys('[ ZXCVBNM] ', 0)
-    }
-
-    updateSequential() {
-        if (game.state !== GameState.Ongoing) return
-
-        skin.sprites.key.draw(
-            new Rect({
-                l: screen.b,
-                r: Math.remap(0, options.timeLimit, screen.t, screen.b, time.now),
-                b: screen.w - 0.025,
-                t: screen.w,
-            }),
-            1000,
-            1,
-        )
-
-        if (time.now < options.timeLimit) return
-
-        game.state = GameState.Loss
     }
 
     spawnKeys(keys: string, y: number) {

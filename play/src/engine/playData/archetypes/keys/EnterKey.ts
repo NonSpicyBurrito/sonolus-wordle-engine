@@ -79,6 +79,8 @@ export class EnterKey extends Key {
 
             board.states.set(x + cursor.y * 5, State.Grey)
         }
+
+        board.times.set(cursor.y, time.now)
     }
 
     updateLetterStates() {

@@ -19,6 +19,7 @@ export class Game extends Archetype {
     }
 
     spawnKeys(keys: string, y: number) {
+        // eslint-disable-next-line @typescript-eslint/no-misused-spread
         for (const [x, k] of [...keys].entries()) {
             switch (k) {
                 case ' ':
